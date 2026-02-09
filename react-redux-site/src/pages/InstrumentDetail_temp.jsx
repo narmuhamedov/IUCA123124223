@@ -21,7 +21,7 @@ const InstrumentDetail = () => {
       <button
         onClick={() => {
           dispatch(clearSelectedInstrument());
-          navigate("/instruments");
+          navigate("/");
         }}
       >
         ← Назад
