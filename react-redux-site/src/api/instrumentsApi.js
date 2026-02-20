@@ -1,5 +1,5 @@
-// "База данных"
-const instruments = [
+// "База данных" - сделаем изменяемой
+let instruments = [
     {
         id: 1,
         name: "Гитара",
@@ -36,11 +36,38 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 // 📃 Получить все инструменты
 export const fetchInstrumentsApi = async () => {
     await delay(500);
-    return instruments;
+    return [...instruments]; // Возвращаем копию массива
 };
 
 // 🔍 Получить один инструмент по id
 export const fetchInstrumentByIdApi = async (id) => {
     await delay(300);
-    return instruments.find(inst => inst.id === Number(id));
+    const instrument = instruments.find(inst => inst.id === Number(id));
+    return instrument ? { ...instrument } : null; // Возвращаем копию или null
+};
+
+// ➕ Создать инструмент
+export const createInstrumentApi = async (instrument) => {
+    await delay(500);
+    const newInstrument = { ...instrument, id: Number(instrument.id) };
+    instruments.push(newInstrument);
+    return { ...newInstrument };
+};
+
+// ✏️ Обновить инструмент
+export const updateInstrumentApi = async (instrument) => {
+    await delay(500);
+    const index = instruments.findIndex(inst => inst.id === Number(instrument.id));
+    if (index !== -1) {
+        instruments[index] = { ...instrument };
+        return { ...instruments[index] };
+    }
+    return null;
+};
+
+// ❌ Удалить инструмент
+export const deleteInstrumentApi = async (id) => {
+    await delay(500);
+    instruments = instruments.filter(inst => inst.id !== Number(id));
+    return id;
 };
