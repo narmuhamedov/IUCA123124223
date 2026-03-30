@@ -6,6 +6,12 @@ import InstrumentsList from "./pages/InstrumentsList_temp.jsx";
 import InstrumentDetail from "./pages/InstrumentDetail_temp.jsx";
 import Home from "./pages/Home.jsx";
 import Counter from "./pages/Counter.jsx";
+
+import Register from "./pages/Register.jsx";
+import Login from "./pages/Login.jsx";
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +21,8 @@ function App() {
     <Route path="/" element={<InstrumentsList />} />
     <Route path="/instruments/:id" element={<InstrumentDetail />} />
     <Route path="/counter" element={<Counter />}  />
+    <Route path="/register" element={<Register />}  />
+    <Route path="/login" element={<Login />}  />
   </Routes>
   
   <Footer />
