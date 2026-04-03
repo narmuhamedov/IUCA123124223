@@ -10,6 +10,7 @@ import Counter from "./pages/Counter.jsx";
 import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
 
+import Purchase from "./pages/Purchase.jsx";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
     <Route path="/counter" element={<Counter />}  />
     <Route path="/register" element={<Register />}  />
     <Route path="/login" element={<Login />}  />
+    <Route path="/purchase" element={<Purchase />}  />
   </Routes>
   
   <Footer />

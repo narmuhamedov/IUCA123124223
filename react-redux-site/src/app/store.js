@@ -4,13 +4,15 @@ import instrumentsReducer from '../features/instruments/instrumentsSlice';
 import counterReducer from "../features/counter/counterSlice";
 import authReducer from '../features/auth/authSlice';
 import { authMiddleware } from './authMiddleware';
+import purchaseReducer  from "../features/purchase/purchaseSlice"
 
 export const store = configureStore({
     reducer: {
         ui: uiReducer,
         instruments: instrumentsReducer,
         counter: counterReducer,
-        auth: authReducer
+        auth: authReducer,
+        purchase: purchaseReducer,
     },
 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authMiddleware)
