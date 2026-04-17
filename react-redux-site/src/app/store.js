@@ -5,6 +5,7 @@ import counterReducer from "../features/counter/counterSlice";
 import authReducer from '../features/auth/authSlice';
 import { authMiddleware } from './authMiddleware';
 import purchaseReducer  from "../features/purchase/purchaseSlice"
+import { notificationMiddleware } from './notificationMiddleware';
 
 export const store = configureStore({
     reducer: {
@@ -15,6 +16,6 @@ export const store = configureStore({
         purchase: purchaseReducer,
     },
 
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authMiddleware)
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authMiddleware, notificationMiddleware)
 
 });
